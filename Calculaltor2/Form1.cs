@@ -15,14 +15,14 @@ namespace Calculator2
         public Form1()
         {
             InitializeComponent();
-            resultBox.MaxLength = 5;  // se the maximum length of the textbox to 5            
+            resultBox.MaxLength = 5;  // set the maximum length of the textbox to 5.       
+            MessageBox.Show("The calculator can only compute calculation with single digits for exampel: 2-2/2, it can't compute 22-2/2. Error will be diplayed.  Press OK, to calculate :)"); 
         }
 
         /// <summary>
-        /// This event is called when button 1 is clicked
+        /// Button are inserted to the form. 
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (resultBox.Text.Length < 5) // The user can't type more than 5 digits
@@ -34,104 +34,111 @@ namespace Calculator2
            
         }
 
+        /// <summary>
+        /// Prepares the expression for the evaluation
+        /// </summary>
+        /// <param name="sender"></param>
         private void buttonEquals_Click(object sender, EventArgs e)
         {
 
-            string stringToSplit = resultBox.Text;
+            string stringToSplit = resultBox.Text; 
 
-            string[] expression = new string[stringToSplit.Length];
+            string[] expression = new string[stringToSplit.Length];  // create an array of strings
 
             for (int i = 0; i < stringToSplit.Length; i++)
             {
-                expression[i] = stringToSplit.ElementAt(i).ToString();  // 
+                expression[i] = stringToSplit.ElementAt(i).ToString();  // get the elements in the i index of the string, convert it to theri string representation, add that representation to the array. 
             }
 
-            //int[] expression2 = new int[stringToSplit.Length]; // Create the array expression 
-
-            //for (int i = 0; i < stringToSplit.Length; i++)
-            //{
-            //    expression2[i] = stringToSplit.ElementAt(i);  // 
-            //}
-           
-             
-            int[] numbers2 = new int[3]; // sort this out after 
-
-            int[] operators = new int[2]; // sort this out after it works; 
-
-            int sum = 0; 
-
-            //for (int i = 0; i < stringToSplit.Length; i++)
-            //{
-            //    if (i == 1 || i == 3)
-            //    {
-
-            //        operators[sum] = (int)expression[i];
-
-            //    }
-
-            //    else
-            //    {
-            //        numbers2[sum] = (int)expression[i];
-            //    }
-            //}
-                
+            resultBox.Clear();
 
 
 
-
-            resultBox.Clear();           
-
-            //char[] expression = text.ToCharArray(); //convert text to character array. I could even deal with them as strings really. ??  
-
-            if (expression.Length == 3 ) // Check if the user wants to execute one calculation e.g. 2+3 or 5-5 or 5/5 etc.
+            if (expression.Length == 3) // Check if the user wants to execute one calculation e.g. 2+3 or 5-5 or 5/5 etc.
             {
-              //string operation = {"* / + -"};
-                string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
-             string operation = "/ * + -";
-
-                if ((operation.Contains((string)expression.GetValue(1))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)))
-                    {
-                        Calculator calculator = new Calculator(expression);
-                         int resultExpression = calculator.BodmasParser(expression);
-                    resultBox.Text += resultExpression;
-                    } 
-                    else
-                    {
-                        string errorHandler = "Error handler";
-                    }
+                ValidateExpressionLength3(expression);
             }
-            else if(expression.Length == 5)// Check if the user wants to execute 2 calculation e.g. 2+3*5 or 5-5/8 or 5-5+5 etc.
+            else if (expression.Length == 5)// Check if the user wants to execute 2 calculation e.g. 2+3*5 or 5-5/8 or 5-5+5 etc.
             {
-                string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
-                string operation = "/ * + -";
-
-                if (((operation.Contains((string)expression.GetValue(1)))) && (operation.Contains((string)expression.GetValue(3))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)) && numbers.Contains((string)expression.GetValue(4)))
-                    {
-                        Calculator calculator = new Calculator(expression);
-                        int resultExpression = calculator.BodmasParser(expression);
-                         resultBox.Text += resultExpression;
-                } 
-                    else
-                    {
-                        string errorHandler = "Error handler";
-                    }
+                ValidateExpressionLength5(expression);
             }
             else
             {
-                string errorHandler = "Error handler"; 
+                Error(); 
             }
-           
-
-                // Create the calculator object to handle the mathematical functions 
-
-            //resultLbl.Text = myCalc.Add(n1, n2).ToString();
 
 
         }
 
+        /// <summary>
+        /// Clears the textbox 
+        /// </summary>
+        /// <param name="sender"></param>
         private void Clear_Click(object sender, EventArgs e)
         {
             resultBox.Clear(); 
         }
+
+        /// <summary>
+        /// Validate if the expression is executable or not. 
+        /// </summary>
+        /// <param name="expression"></param>
+        private void ValidateExpressionLength3(string[] expression)
+        {
+            //string operation = {"* / + -"};
+            string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
+            string operation = "/ * + -";
+
+            if ((operation.Contains((string)expression.GetValue(1))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2))) // Look if the 
+            {
+                Calculate(expression); 
+            }
+            else
+            {
+                Error(); // display error
+            }
+        }
+
+        /// <summary>
+        /// Validate if the expression is executable or not. 
+        /// </summary>
+        /// <param name="expression"></param>
+        private void ValidateExpressionLength5(string[] expression)
+        {
+            string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
+            string operation = "/ * + -";
+
+            if (((operation.Contains((string)expression.GetValue(1)))) && (operation.Contains((string)expression.GetValue(3))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)) && numbers.Contains((string)expression.GetValue(4)))
+            {
+                Calculate(expression);
+            }
+            else
+            {
+                Error(); // display error
+            }
+        }
+
+        /// <summary>
+        /// Display the error on the text box
+        /// </summary>
+        /// <param name="sender"></param>
+        private void Error()
+        {
+            string errorHandler = "Error, Try again";
+            resultBox.Text += errorHandler;
+        }
+
+        /// <summary>
+        /// Create Calculator object, call the calculator method to evaluate the expression. 
+        /// </summary>
+        /// <param name="expression"></param>
+        private void Calculate(string[] expression)
+        {
+            Calculator calculator = new Calculator(expression);
+            int resultExpression = calculator.ExpressionParser(expression); 
+            resultBox.Text += resultExpression; // show the result on the result box 
+        }
+
+       
     }
 }

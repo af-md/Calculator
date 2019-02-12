@@ -261,6 +261,7 @@ namespace Calculator2
             this.Text = "2";
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.CenterToScreen();  // initialize the form in the center of the screen
 
         }
 

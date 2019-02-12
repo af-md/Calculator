@@ -17,7 +17,7 @@ namespace Calculator2
                // BodmasParser(expression);  
         }
         
-        public int BodmasParser(string[] expression)
+        public int ExpressionParser(string[] expression)
         {
             
             if (expression.Length == 3) // Check how many calculations are going to be executed. In this case 1 
