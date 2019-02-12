@@ -25,29 +25,38 @@ namespace Calculator2
 
                 if (expression.Contains("/"))
                 {
-                    int number1 = (int)expression.GetValue(0);
-                    int number2 = (int)expression.GetValue(2);
+
+                    string firstNumber = (string)expression.GetValue(0);
+                    int number1 = Int32.Parse(firstNumber);
+                    string secondNumber = (string)expression.GetValue(2);
+                    int number2 = Int32.Parse(secondNumber);                   
                     string operation = (string)expression.GetValue(1);
                     return Evaluate(number1, number2, operation);
                 }
                 else if (expression.Contains("*"))
                 {
-                    int number1 = (int)expression.GetValue(0);
-                    int number2 = (int)expression.GetValue(2);
+                    string firstNumber = (string)expression.GetValue(0);
+                    int number1 = Int32.Parse(firstNumber);
+                    string secondNumber = (string)expression.GetValue(2);
+                    int number2 = Int32.Parse(secondNumber);
                     string operation = (string)expression.GetValue(1);
                     return Evaluate(number1, number2, operation);
                 }
                 else if (expression.Contains("+"))
                 {
-                    int number1 = (int)expression.GetValue(0);
-                    int number2 = (int)expression.GetValue(2);
+                    string firstNumber = (string)expression.GetValue(0);
+                    int number1 = Int32.Parse(firstNumber);
+                    string secondNumber = (string)expression.GetValue(2);
+                    int number2 = Int32.Parse(secondNumber);
                     string operation = (string)expression.GetValue(1);
                     return Evaluate(number1, number2, operation);
                 }
                 else if (expression.Contains("-"))
                 {
-                    int number1 = (int)expression.GetValue(0);
-                    int number2 = (int)expression.GetValue(2);
+                    string firstNumber = (string)expression.GetValue(0);
+                    int number1 = Int32.Parse(firstNumber);
+                    string secondNumber = (string)expression.GetValue(2);
+                    int number2 = Int32.Parse(secondNumber);
                     string operation = (string)expression.GetValue(1);
                     return Evaluate(number1, number2, operation);
                 }
@@ -59,46 +68,57 @@ namespace Calculator2
                 {
                     if ((string)expression.GetValue(1) == "/") // look if the operation starts from left e.g. 1/2-5 not 1-3/5
                     {
-                        int number1 = (int)expression.GetValue(0);
-                        int number2 = (int)expression.GetValue(2);
+
+                        string firstNumber = (string)expression.GetValue(0);
+                        int number1 = Int32.Parse(firstNumber);
+                        string secondNumber = (string)expression.GetValue(2);
+                        int number2 = Int32.Parse(secondNumber);
                         string operation = (string)expression.GetValue(1);
                         int result = Evaluate(number1, number2, operation);
-                        int number3 = (int)expression.GetValue(4);
+                        string thirdNumber = (string)expression.GetValue(4);
+                        int number3 = Int32.Parse(thirdNumber);
                         string operation2 = (string)expression.GetValue(3);
                         return Evaluate(result, number3, operation2);
                     }
                     else // if the operation does have / sign on the right hand side  
                     {
-                        int number1 = (int)expression.GetValue(2);
-                        int number2 = (int)expression.GetValue(4);
+                        string firstNumber = (string)expression.GetValue(2);
+                        int number1 = Int32.Parse(firstNumber);
+                        string secondNumber = (string)expression.GetValue(4);
+                        int number2 = Int32.Parse(secondNumber);
                         string operation = (string)expression.GetValue(3);
                         int result = Evaluate(number1, number2, operation);
-                        int number3 = (int)expression.GetValue(0);
+                        string thirdNumber = (string)expression.GetValue(0);
+                        int number3 = Int32.Parse(thirdNumber);
                         string operation2 = (string)expression.GetValue(1);
-                        return Evaluate(result, number3, operation2);
+                        return Evaluate(number3, result, operation2);
                     }
-
-
                 }
                 else if (expression.Contains("*"))
                 {
                     if ((string)expression.GetValue(1) == "*") // look if the operation starts from left e.g. 1/2-5 not 1-3/5
                     {
-                        int number1 = (int)expression.GetValue(0);
-                        int number2 = (int)expression.GetValue(2);
+                        string firstNumber = (string)expression.GetValue(0);
+                        int number1 = Int32.Parse(firstNumber);
+                        string secondNumber = (string)expression.GetValue(2);
+                        int number2 = Int32.Parse(secondNumber);
                         string operation = (string)expression.GetValue(1);
                         int result = Evaluate(number1, number2, operation);
-                        int number3 = (int)expression.GetValue(4);
+                        string thirdNumber = (string)expression.GetValue(4);
+                        int number3 = Int32.Parse(thirdNumber);
                         string operation2 = (string)expression.GetValue(3);
                         return Evaluate(result, number3, operation2);
                     }
                     else // if the operation does have / sign on the right hand side  
                     {
-                        int number1 = (int)expression.GetValue(2);
-                        int number2 = (int)expression.GetValue(4);
+                        string firstNumber = (string)expression.GetValue(2);
+                        int number1 = Int32.Parse(firstNumber);
+                        string secondNumber = (string)expression.GetValue(4);
+                        int number2 = Int32.Parse(secondNumber);
                         string operation = (string)expression.GetValue(3);
                         int result = Evaluate(number1, number2, operation);
-                        int number3 = (int)expression.GetValue(0);
+                        string thirdNumber = (string)expression.GetValue(0);
+                        int number3 = Int32.Parse(thirdNumber);
                         string operation2 = (string)expression.GetValue(1);
                         return Evaluate(result, number3, operation2);
                     }
@@ -107,34 +127,42 @@ namespace Calculator2
                 {
                     if ((string)expression.GetValue(1) == "+") // look if the operation starts from left e.g. 1/2-5 not 1-3/5
                     {
-                        int number1 = (int)expression.GetValue(0);
-                        int number2 = (int)expression.GetValue(2);
+                        string firstNumber = (string)expression.GetValue(0);
+                        int number1 = Int32.Parse(firstNumber);
+                        string secondNumber = (string)expression.GetValue(2);
+                        int number2 = Int32.Parse(secondNumber);
                         string operation = (string)expression.GetValue(1);
                         int result = Evaluate(number1, number2, operation);
-                        int number3 = (int)expression.GetValue(4);
+                        string thirdNumber = (string)expression.GetValue(4);
+                        int number3 = Int32.Parse(thirdNumber);
                         string operation2 = (string)expression.GetValue(3);
                         return Evaluate(result, number3, operation2);
                     }
                     else // if the operation does have / sign on the right hand side  
                     {
-                        int number1 = (int)expression.GetValue(2);
-                        int number2 = (int)expression.GetValue(4);
+                        string firstNumber = (string)expression.GetValue(2);
+                        int number1 = Int32.Parse(firstNumber);
+                        string secondNumber = (string)expression.GetValue(4);
+                        int number2 = Int32.Parse(secondNumber);
                         string operation = (string)expression.GetValue(3);
                         int result = Evaluate(number1, number2, operation);
-                        int number3 = (int)expression.GetValue(0);
+                        string thirdNumber = (string)expression.GetValue(0);
+                        int number3 = Int32.Parse(thirdNumber);
                         string operation2 = (string)expression.GetValue(1);
                         return Evaluate(result, number3, operation2);
-
                     }
                 }
                 else
                 {
-                    int number1 = (int)expression.GetValue(0);
-                    int number2 = (int)expression.GetValue(2);
-                    string operation = (string)expression.GetValue(1);
+                    string firstNumber = (string)expression.GetValue(2);
+                    int number1 = Int32.Parse(firstNumber);
+                    string secondNumber = (string)expression.GetValue(4);
+                    int number2 = Int32.Parse(secondNumber);
+                    string operation = (string)expression.GetValue(3);
                     int result = Evaluate(number1, number2, operation);
-                    int number3 = (int)expression.GetValue(4);
-                    string operation2 = (string)expression.GetValue(3);
+                    string thirdNumber = (string)expression.GetValue(0);
+                    int number3 = Int32.Parse(thirdNumber);
+                    string operation2 = (string)expression.GetValue(1);
                     return Evaluate(result, number3, operation2);
                 }
             }
@@ -168,7 +196,7 @@ namespace Calculator2
             return number1 - number2;
         }
 
-        public int Evaluate(int number1,int number2, string operation)
+        public int Evaluate(int number1 , int number2, string operation)
         {
 
             int result = 0;

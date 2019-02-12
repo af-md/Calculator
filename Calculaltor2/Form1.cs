@@ -39,12 +39,45 @@ namespace Calculator2
 
             string stringToSplit = resultBox.Text;
 
-            string[] expression = new string[stringToSplit.Length]; // Create the array expression 
+            string[] expression = new string[stringToSplit.Length];
 
-            for (int i = 0; i<stringToSplit.Length; i++)
+            for (int i = 0; i < stringToSplit.Length; i++)
             {
                 expression[i] = stringToSplit.ElementAt(i).ToString();  // 
             }
+
+            //int[] expression2 = new int[stringToSplit.Length]; // Create the array expression 
+
+            //for (int i = 0; i < stringToSplit.Length; i++)
+            //{
+            //    expression2[i] = stringToSplit.ElementAt(i);  // 
+            //}
+           
+             
+            int[] numbers2 = new int[3]; // sort this out after 
+
+            int[] operators = new int[2]; // sort this out after it works; 
+
+            int sum = 0; 
+
+            //for (int i = 0; i < stringToSplit.Length; i++)
+            //{
+            //    if (i == 1 || i == 3)
+            //    {
+
+            //        operators[sum] = (int)expression[i];
+
+            //    }
+
+            //    else
+            //    {
+            //        numbers2[sum] = (int)expression[i];
+            //    }
+            //}
+                
+
+
+
 
             resultBox.Clear();           
 
@@ -53,7 +86,7 @@ namespace Calculator2
             if (expression.Length == 3 ) // Check if the user wants to execute one calculation e.g. 2+3 or 5-5 or 5/5 etc.
             {
               //string operation = {"* / + -"};
-            string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
+                string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
              string operation = "/ * + -";
 
                 if ((operation.Contains((string)expression.GetValue(1))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)))
@@ -75,7 +108,8 @@ namespace Calculator2
                 if (((operation.Contains((string)expression.GetValue(1)))) && (operation.Contains((string)expression.GetValue(3))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)) && numbers.Contains((string)expression.GetValue(4)))
                     {
                         Calculator calculator = new Calculator(expression);
-                        int resultTextBox = calculator.BodmasParser(expression);
+                        int resultExpression = calculator.BodmasParser(expression);
+                         resultBox.Text += resultExpression;
                 } 
                     else
                     {
