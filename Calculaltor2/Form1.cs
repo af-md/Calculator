@@ -89,7 +89,9 @@ namespace Calculator2
             string numbers = "1 2 3 4 5 6 7 8 9 0"; // I can compare the first and third value of the expression to make sure it's a number not an operation  
             string operation = "/ * + -";
 
-            if ((operation.Contains((string)expression.GetValue(1))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2))) // Look if the 
+            if ((operation.Contains((string)expression.GetValue(1))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)))
+            // Normal expressios e.g "2+2". Compare if the second value of the normal expression is equal to any operator in the string, then compare if the  first and third value are in the numbers string.   
+            // This conditional statement will validate if the expression is in the right format to be executed or not.
             {
                 Calculate(expression); 
             }
@@ -109,6 +111,8 @@ namespace Calculator2
             string operation = "/ * + -";
 
             if (((operation.Contains((string)expression.GetValue(1)))) && (operation.Contains((string)expression.GetValue(3))) && numbers.Contains((string)expression.GetValue(0)) && numbers.Contains((string)expression.GetValue(2)) && numbers.Contains((string)expression.GetValue(4)))
+            // Normal expressios e.g "2+2/5" Compare if the second value and the fourth value of the normal expression is equal to any operator in the string, then compare if the  first, third and fourth value are in the numbers string.   
+            // This conditional statement will validate if the expression is in the right format to be executed or not. 
             {
                 Calculate(expression);
             }
