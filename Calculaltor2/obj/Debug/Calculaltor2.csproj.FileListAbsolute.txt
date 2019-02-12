@@ -1,0 +1,13 @@
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\bin\Debug\Calculaltor2.exe.config
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\bin\Debug\Calculaltor2.exe
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\bin\Debug\Calculaltor2.pdb
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.csprojAssemblyReference.cache
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculator2.Form1.resources
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.Properties.Resources.resources
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.csproj.GenerateResource.cache
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.csproj.CoreCompileInputs.cache
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.exe
+C:\Users\Afzal\Desktop\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.pdb
+E:\Calculaltor2\Calculaltor2\bin\Debug\Calculaltor2.exe.config
+E:\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.exe
+E:\Calculaltor2\Calculaltor2\obj\Debug\Calculaltor2.pdb
